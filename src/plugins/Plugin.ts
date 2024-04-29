@@ -33,7 +33,7 @@ export class Plugin
     }
 
     /** Handler for pointerdown PIXI event */
-    public down(_e: FederatedEvent): boolean
+    public down(_e: FederatedEvent): boolean | Promise<boolean>
     {
         return false;
     }

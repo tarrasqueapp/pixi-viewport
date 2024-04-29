@@ -83,7 +83,7 @@ export class InputManager
      *
      * @param {PIXI.FederatedPointerEvent} event
      */
-    public down(event: FederatedPointerEvent): void
+    public async down(event: FederatedPointerEvent): Promise<void>
     {
         if (this.viewport.pause || !this.viewport.visible)
         {
@@ -119,7 +119,7 @@ export class InputManager
             this.clickedAvailable = false;
         }
 
-        const stop = this.viewport.plugins.down(event);
+        const stop = await this.viewport.plugins.down(event);
 
         if (stop && this.viewport.options.stopPropagation)
         {
